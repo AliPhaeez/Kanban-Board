@@ -1,4 +1,6 @@
 # Kanban-Board
+ basic web app to tarck your daily tasks 
+ 
 # local developement Run
 type in terminal/shell python app.py it will start the local server or can click on run button after selecting the app.py folder
 

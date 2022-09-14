@@ -6,8 +6,6 @@ type in terminal/shell python app.py it will start the local server or can click
 
 # Folder structure
 ## Three main folders 
-### 1. Static for the stylings/css and images 
-### 2. templates for the html files
-
-### 3. Application folder
-       app.py for database , logics and Api everything in one
+1. Static for the stylings/css and images 
+2. templates for the html files
+3. Application folder : app.py for database , logics and Api everything in one

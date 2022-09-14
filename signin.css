@@ -1,0 +1,33 @@
+*{
+    margin: 10;
+    padding: 10;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(90deg, #185f0fe8 0%, #2f7c0bd9 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container {
+    height: 65%;
+    width: 55%;
+    background-color: #a5d48e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 3px;
+    box-shadow: rgba(65, 101, 79, 0.875) 0px 7px 29px 0px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+}

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.rtl.min.css"
+    integrity="sha384-dc2NSrAXbAkjrdm9IYrX10fQq9SDG6Vjz7nQVKdKcJl3pC+k37e7qJR5MVSCS+wR" crossorigin="anonymous">
+
+  <title>dashboard</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg text-bg-success p-2">
+    <div class="container-fluid">
+      <a class="navbar-brand ">WELCOME <strong>{{info.name}}</strong> to your dashboard </a>
+
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="btn btn-outline-Secondary" style="margin-right: 2px;" aria-current="page"
+              href="/{{info['id']}}/summary">Summary</a>
+          </li>
+
+
+        </ul>
+        <form action="/" style="max-width: 400px; ">
+          <button class="btn btn-outline-danger" type="submit">EXIT</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+
+  {% if total_task==0 %}
+  <marquee behavior="" direction="" class="display-7">  <strong>  No task for now .....add some</strong></marquee>
+  {%endif%}
+
+
+
+  <div clas="mt-3">
+    <div id="container">
+      <div class="col1">
+        <h2> <strong> TO-DO</strong> </h2>
+        <ol>
+          {% for list in tasks %}
+          <div class="card shadow " style="width: 25rem;">
+            <div class="card-body shadow">
+              <h4 class="card-title text-danger"><a>{{ list['title'] }}</a> </h4>
+              <br>
+
+              <h5>
+                <p class="card-text"> {{ list['description'] }}</p>
+              </h5>
+              <a href="/{{list['id']}}/edit_task" class="btn btn-outline-primary card-link">Edit</a>
+              <a href="/{{list['id']}}/add" class=" btn btn-outline-success card-link">Add</a>
+              <a href="/{{list['id']}}/delete_task" class=" btn btn-outline-danger card-link">Delete</a>
+            </div>
+          </div>
+          <br>
+          {%endfor%}
+        </ol>
+      </div>
+    </div>
+
+
+
+    <div class="col2">
+      <h2>Statistics</h2>
+      <ol>
+        <div class="card shadow " style="width: 25rem;">
+          <div class="card-body shadow">
+            <h4 class="card-title">total task </h4>
+            <h6 class="card-subtitle mb-2 text-muted">{{total_task}}</h6>
+            <h4 class="card-text">total cards</h4>
+            <h6 class="card-text">{{total_cards}}</h6>
+
+          </div>
+        </div>
+        <br>
+        <div class="card shadow " style="width: 25rem;">
+          <div class="card-body">
+            <h4 class="text-success">completed cards</h4>
+            <h6 class="card-subtitle mb-2 text-muted">{{completed}}</h6>
+            <h4 class="text-danger">pending cards</h4>
+            <h6 class="card-text">{{pending}}</h6>
+          </div>
+        </div>
+      </ol>
+    </div>
+
+
+    <div class="col3">
+      <div class="container fluid shadow">
+        <h2> add your task here</h2>
+        <form action="" method="POST">
+          <table class="table">
+            <tr>
+              <td> Title</td>
+              <td><input type="text" name="title" required> </td>
+            </tr>
+            <tr><br></tr>
+            <tr>
+              <td>description</td>
+              <td> <textarea name="description"></textarea> </td>
+            </tr>
+            <tr><br></tr>
+            <tr>
+              <td>
+                <button class="btn btn-success" type="submit">Add</button>
+              </td>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
